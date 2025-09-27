@@ -35,8 +35,8 @@ def serializer(obj): return isinstance(obj, (date, datetime, Decimal)) and str(o
 
 # Kite Connect App settings. Go to https://developers.kite.trade/apps/
 # to create an app if you don't have one.
-kite_api_key = "kite_api_key"
-kite_api_secret = "kite_api_secret"
+kite_api_key = os.getenv("KITE_API_KEY")
+kite_api_secret = os.getenv("KITE_API_SECRET")
 
 # Create a redirect url
 redirect_url = "http://{host}:{port}/login".format(host=HOST, port=PORT)
@@ -126,4 +126,4 @@ def orders():
 
 if __name__ == "__main__":
     logging.info("Starting server: http://{host}:{port}".format(host=HOST, port=PORT))
-    app.run(host=HOST, port=PORT, debug=True)
+    app.run(host=HOST, port=PORT, debug=False, use_reloader=False)
