@@ -20,6 +20,9 @@ import logging
 from datetime import date, datetime
 from decimal import Decimal
 
+from dotenv import load_dotenv
+load_dotenv()  # Load environment variables from .env file
+
 from flask import Flask, request, jsonify, session
 from kiteconnect import KiteConnect
 

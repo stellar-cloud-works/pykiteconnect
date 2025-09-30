@@ -17,8 +17,12 @@ from kiteconnect import KiteTicker
 
 logging.basicConfig(level=logging.DEBUG)
 
-# Initialise.
-kws = KiteTicker("vi5ny424hkun8wfp", "BDeawkxYhdOC59fTyU6a22b2MCeZZtFp")
+# Use environment variables for credentials
+API_KEY = os.getenv("KITE_API_KEY")
+ACCESS_TOKEN = os.getenv("KITE_ACCESS_TOKEN")
+
+# Initialise
+kws = KiteTicker(API_KEY, ACCESS_TOKEN)
 
 # RELIANCE BSE
 tokens = [
